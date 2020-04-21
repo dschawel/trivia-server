@@ -21,7 +21,8 @@ let userSchema = new mongoose.Schema({
     minlength: 8,
     maxlength: 32
   },
-  profileUrl: String
+  galocation: String,
+  gacourse: String
 })
 
 // Use bcrypt to hash password
