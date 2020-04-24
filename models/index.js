@@ -7,3 +7,4 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/trivia', {
 })
 
 module.exports.User = require('./user')
+
