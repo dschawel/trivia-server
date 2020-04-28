@@ -19,4 +19,24 @@ router.get('/', (req, res) => {
     })
 })
 
+router.put('/', (req, res) => {
+    db.User.findById(req.params.userId)
+    .then(user => {
+        if (user == req.user._id) {
+            user.points = req.body.points
+            user.save().then(() => {
+                console.log('User points updated')
+                res.send({ user })
+            })
+        }
+        else {
+            res.status(401).send({ message: 'Not the user' })
+        }
+    })
+    .catch((err) => {
+        console.log('error', err) 
+        res.send({ message: 'Server error' })
+    })
+})
+
 module.exports = router
