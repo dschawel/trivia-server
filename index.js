@@ -18,7 +18,7 @@ app.use(express.json()) // Accept data from fetch (or any AJAX call)
 
 // Routes
 app.use('/auth', expressJwt({ 
-  secret: process.env.JWT_SECRET
+  secret: "shawhien"
   }).unless({ // unless defines exceptions to the rule
     path: [
     { url: '/auth/login', methods: ['POST'] },
@@ -28,7 +28,7 @@ app.use('/auth', expressJwt({
 
 //Users
 app.use('/users', expressJwt({
-  secret: process.env.JWT_SECRET
+  secret: "shawhien"
 }), require('./controllers/users'))
 
 app.get('*', (req, res) => {
