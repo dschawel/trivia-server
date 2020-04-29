@@ -32,7 +32,7 @@ let userSchema = new mongoose.Schema({
   gacourse: {
     type: String,
     required: true,
-    maxlength: 3
+    maxlength: 5
   },
 
   points: Number
