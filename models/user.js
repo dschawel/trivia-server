@@ -8,7 +8,10 @@ let userSchema = new mongoose.Schema({
     required: true,
     minlength: 1
   },
-  lastname: String,
+  lastname: {
+    type: String,
+    required: true,
+  },
   email: {
     type: String,
     required: true,
@@ -21,8 +24,17 @@ let userSchema = new mongoose.Schema({
     minlength: 8,
     maxlength: 32
   },
-  galocation: String,
-  gacourse: String,
+  galocation: {
+    type: String,
+    required: true,
+    maxlength: 3
+  },
+  gacourse: {
+    type: String,
+    required: true,
+    maxlength: 5
+  },
+
   points: Number
 })
 
