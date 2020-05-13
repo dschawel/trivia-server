@@ -20,13 +20,14 @@ router.get('/', (req, res) => {
 })
 
 router.put('/', (req, res) => {
-    db.User.findById(req.params.userId)
-    .then(user => {
-        if (user == req.user._id) {
-            user.points = req.body.points
-            user.save().then(() => {
+    db.User.findById(req.user._id)
+    .then(thisUser => {
+        console.log('Line 25', req.user._id)
+        if (thisUser == req.user._id) {
+            thisUser.user.points = req.body.points
+            thisUser.save().then(() => {
                 console.log('User points updated')
-                res.send({ user })
+                res.send({ thisUser })
             })
         }
         else {

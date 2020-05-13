@@ -34,8 +34,10 @@ let userSchema = new mongoose.Schema({
     required: true,
     maxlength: 5
   },
-
-  points: Number
+  points: {
+    type: Number,
+    default: 0,
+  }
 })
 
 // Use bcrypt to hash password
