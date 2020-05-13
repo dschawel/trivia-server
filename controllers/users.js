@@ -24,6 +24,7 @@ router.put('/', (req, res) => {
     .then(thisUser => {
         console.log('Line 25', req.user._id)
         if (thisUser == req.user._id) {
+            console.log('Line 27', req.body.points)
             thisUser.user.points = req.body.points
             thisUser.save().then(() => {
                 console.log('User points updated')
